@@ -128,14 +128,6 @@ def peel_pdf(infile, outfile, uniform_page_size=True, margins=None,
         ll_x = float(media_box.getLowerLeft_x())
         ll_y = float(media_box.getLowerLeft_y())
 
-        # check that box is not bigger than media window!
-        if bb[4] > media_box[2]:
-            raise Exception("crop box is wider than media box ({}>{})" \
-                    .format(bb[4], media_box[2]))
-        if bb[5] > media_box[3]:
-            raise Exception("crop box is higher than media box ({}>{})" \
-                    .format(bb[5], media_box[3]))
-    
         # make sure that the lower left corner of the page is low enough to fit
         # the entire height of the input page onto the output page (this is
         # only relevant for the uniform page size case)
